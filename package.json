@@ -48,7 +48,8 @@
     "socket.io": "^2.2.0",
     "socket.io-client": "^2.2.0",
     "sticky-session": "^0.1.0",
-    "uuid": "^3.3.2"
+    "uuid": "^3.3.2",
+    "@snyk/protect": "latest"
   },
   "devDependencies": {
     "chai": "^1.9.1",
@@ -67,7 +68,9 @@
     "stop": "./stop.sh",
     "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- --reporter spec test",
     "test": "./node_modules/.bin/mocha --exit",
-    "coveralls": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+    "coveralls": "./node_modules/.bin/istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
+    "prepublish": "npm run snyk-protect",
+    "snyk-protect": "snyk-protect"
   },
   "bitcoreNode": "./bitcorenode",
   "contributors": [
@@ -83,5 +86,6 @@
       "name": "Matias Alejo Garcia",
       "email": "ematiu@gmail.com"
     }
-  ]
+  ],
+  "snyk": true
 }
